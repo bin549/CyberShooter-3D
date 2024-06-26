@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp1cgbbjscqcp"]
+[gd_scene load_steps=5 format=3 uid="uid://cp1cgbbjscqcp"]
 
 [ext_resource type="Script" path="res://scenes/Player/player.gd" id="1_ic4ae"]
+[ext_resource type="Script" path="res://scenes/Player/SmoothCamera.gd" id="2_g1owi"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ixeie"]
 
@@ -14,3 +15,11 @@ mesh = SubResource("CapsuleMesh_ixeie")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_bco6p")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.3, 2.08165e-12)
+
+[node name="SmoothCamera" type="Camera3D" parent="CameraPivot"]
+unique_name_in_owner = true
+top_level = true
+script = ExtResource("2_g1owi")
