@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var speed := 8.0
+@export var speed := 38.0
 @export var jump_height: float = 1.0
 @export var fall_multiplier: float = 2.5
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -9,6 +9,11 @@ var mouse_motion := Vector2.ZERO
 @onready var smooth_camera: Camera3D = %SmoothCamera
 @onready var smooth_camera_fov := smooth_camera.fov
 
+
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	
 func _process(delta: float) -> void:
 	smooth_camera.fov = lerp(smooth_camera.fov, smooth_camera_fov, delta * 30.0)
 	
